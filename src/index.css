@@ -1,13 +1,242 @@
-body {
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+*{
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+:root{
+  --primary-color: #000;
+  --secondary-color: #3738c2;
+}
+
+html{
+  scroll-behavior: smooth;
+}
+
+body{
+  background-image: linear-gradient(to right, #000, #3738c2);
+}
+
+.App{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+img{
+  width: 100%;
+}
+
+ul{
+  list-style-type: none;
+}
+
+a{
+  text-decoration: none;
+}
+
+.click{
+  transition: all 300ms ease;
+}
+
+.click:hover{
+  transform: scale(1.2);
+}
+
+.click:active{
+  transform: scale(0.9);
+}
+
+.container{
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.row{
+  margin: 0 auto;
+  width: 95%;
+}
+
+/* NAV */
+
+.nav{
+  height: 80px;
+}
+
+.nav--wrapper{
+  margin: 0 auto;
+  padding: 0 28px;
+  max-width: 1200px;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav__img--wrapper{
+  display: flex;
+}
+
+.nav__img{
+  width: 110px;
+  height: auto;
+  border-radius: 50%;
+}
+
+.nav__list{
+  display: flex;
+}
+
+.nav__list--item:not(:last-child){
+  margin-right: 30px;
+}
+
+.nav__link{
+  color: white;
+  font-size: 24px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border: none;
+}
+
+/* LANDING */
+
+.landing{
+  height: calc(100vh - 80px);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.landing__img--wrapper{
+  position: relative;
+  height: 1005;
+  display: flex;
+}
+
+.landing__img{
+  width: 100%;
+  object-fit: contain;
+}
+
+.landing__img--wrapper::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100%;
+  background: linear-gradient(0deg, rgba(0,0,0,1) 35%, rgba(0,0,0,0) 100%);
+  opacity: 0.9;
+  z-index: 1;
+}
+
+.input__wrapper{
+  display: flex;
+  width: 70%;
+  align-items: center;
+  background-color: whitesmoke;
+  padding: 10px;
+  border-radius: 30px;
+  margin: 100px 0 50px 0;
+}
+
+.input__wrapper > .MuiSvgIcon-root{
+  color: var(--secondary-color);
+  font-size: 35px;
+  transition: all 300ms ease;
+}
+
+.input__wrapper > .MuiSvgIcon-root:hover{
+  transform: scale(1.2);
+}
+
+.input__wrapper > .MuiSvgIcon-root:active{
+  transform: scale(0.9);
+}
+
+.landing__input{
+  border: none;
+  width: 100%;
+  padding: 10px;
+  background-color: transparent;
+  font-size: medium;
+  outline: none;
+}
+
+.down--icon{
+  display: block;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  bottom: 5%;
+  font-size: 74px;
+  color: var(--secondary-color);
+  z-index: 3;
+  transition: all 300ms ease;
+  animation: go-down 1100ms infinite alternate-reverse;
+}
+
+@keyframes go-down {
+  0%{
+    transform: translate(-50%, -50%) translateY(-20px);
+  }
+  100%{
+    transform: translate(-50%, -50%) scale(0.9);
+  }
+}
+
+.down--icon:hover{
+  color: white;
+}
+
+.skeleton{
+  background-color: rgba(0, 0, 0, 0.534);
+  width: 100%;
+  height: 100%;
+}
+
+/* SKELETON CARD */
+
+.movie-card--skeleton{
+  height: 500px;
+  width: calc(100% / 3);
+  display: flex;
+  position: relative;
+  background-color: rgba(59, 59, 59, 0.589);
+}
+
+.movie__img--skeleton{
+  width: 100%;
+  height: 100%;
+  background-color: rgba(104, 104, 104, 0.774);
+}
+
+.movie__title--skeleton{
+  position: absolute;
+  width: 90%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  bottom: 10%;
+  z-index: 2;
+  height: 20px;
+  background-color: rgba(104, 104, 104, 0.774);
+}
+
+.movie__rating--skeleton{
+  background-color: rgba(104, 104, 104, 0.774);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding: 60px;
+  border-radius: 50%;
 }
