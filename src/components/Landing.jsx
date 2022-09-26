@@ -38,6 +38,19 @@ const Landing = () => {
 
   return (
     <section className="landing">
+        <figure className="landing__img--wrapper">
+            {
+                loading ? (
+                    <div className="skeleton"></div>
+                ) : (
+                    <img 
+                        src={`https://image.tmdb.org/t/p/original${randomMovie.backdrop_path}`} 
+                        alt="landing page image" 
+                        className="landing__img" 
+                    />
+                )
+            }
+        </figure>
         <div className="input__wrapper">
             <SearchIcon onClick={onSearch}/> 
             <input 
@@ -54,20 +67,6 @@ const Landing = () => {
                 }
             />
         </div>
-        <figure className="landing__img--wrapper">
-            {
-                loading ? (
-                    <div className="skeleton"></div>
-                ) : (
-                    <img 
-                        src={`https://image.tmdb.org/t/p/original${randomMovie.backdrop_path}`} 
-                        alt="landing page image" 
-                        className="landing__img" 
-                    />
-                )
-            }
-        </figure>
-        
             <a href="#trending-movies" className='down--icon'>
                 <ArrowCircleDownIcon/>
             </a>

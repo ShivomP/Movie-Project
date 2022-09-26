@@ -4,6 +4,8 @@ import Home from './pages/Home';
 import Explore from './pages/Explore';
 import SearchResults from './components/SearchResults';
 import MovieInfo from './pages/MovieInfo';
+import Footer from './components/Footer';
+import MobileSideBar from './components/MobileSideBar';
 
 
 function App() {
@@ -11,12 +13,14 @@ function App() {
     <Router>
       <div className="App">
         <Nav/>
+        <MobileSideBar/>
         <Routes>
           <Route path="/" element={<Home/>} />
           <Route path="/explore" element={<Explore/>} />
           <Route path="/searchresult" element={<SearchResults/>} />
           <Route path="/movie:id" element={<MovieInfo/>} />
         </Routes>
+        <Footer/>
       </div>
     </Router>
   );
