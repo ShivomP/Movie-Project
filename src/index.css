@@ -84,6 +84,7 @@ a{
   width: 110px;
   height: auto;
   border-radius: 50%;
+  border: 2px solid var(--secondary-color);
 }
 
 .nav__list{
@@ -106,6 +107,7 @@ a{
 /* LANDING */
 
 .landing{
+  padding-top: 10px;
   position: relative;
   height: calc(100vh - 80px);
 }
