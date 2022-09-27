@@ -16,10 +16,11 @@ function App() {
         <MobileSideBar/>
         <Routes>
           <Route path="/" element={<Home/>} />
+          <Route path="//movie/:id" element={<MovieInfo/>}/>
           <Route path="/explore" element={<Explore/>} />
-          <Route path="/searchresult" element={<SearchResults/>} >
-             <Route path="searchresult/movie/:id" element={<MovieInfo/>} />
-          </Route>
+          <Route path="/explore/movie/:id" element={<MovieInfo/>}/>
+          <Route path="/searchresult" element={<SearchResults/>} />
+          <Route path="/searchresult/movie/:id" element={<MovieInfo/>} />
         </Routes>
         <Footer/>
       </div>
