@@ -47,21 +47,21 @@ const MovieInfo = () => {
                       {movie.title}
                     </h1>
                     <p className="movie__info--release">
-                      <b>Release Date:</b>
+                      <b>Release Date: </b>
                       {movie.release_date}
                     </p>
                     <p className="movie__info--duration">
-                      <b>Time:</b>
+                      <b>Time: </b>
                       {parseInt((movie.runtime / 60))}h{" "+(movie.runtime % 60)} min
                     </p>
                     <div className="movie__info--rating-wrapper">
                       <p className="movie__info--rating">
-                        <b>Rating:</b>
+                        <b>Rating: </b>
                         {movie.vote_average.toFixed(1)}
                       </p>
                     </div>
                     <p className="movie__info--summary">
-                      <b>Summary:</b>
+                      <b>Summary: </b> 
                       {movie.overview}
                     </p>
                   </div>

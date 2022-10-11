@@ -574,8 +574,9 @@ footer{
     display: block;
   }
 
-  .movie__card--link{
-    width: 50%;
+  .movies--wrapper{
+    flex-direction: column;
+    align-items: center;
   }
 
   .movie__info--wrapper{
@@ -586,6 +587,10 @@ footer{
   .movie__info--img-wrapper,
   .movie__info--specifics{
     width: 100%;
+  }
+
+  .movie__info--summary{
+    width: 90%;
   }
 
   .movie__info--specifics{
