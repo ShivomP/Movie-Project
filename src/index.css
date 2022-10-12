@@ -584,12 +584,11 @@ footer{
     margin: 24px 0;
   }
 
-  .movie__info--img-wrapper,
-  .movie__info--specifics{
+  .movie__info--img-wrapper{
     width: 100%;
   }
 
-  .movie__info--summary{
+  .movie__info--specifics{
     width: 90%;
   }
 
