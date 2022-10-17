@@ -12,7 +12,7 @@ const Landing = () => {
     const [inputValue, setInputValue] = useState("");
 
     function onSearch(){
-        if(inputValue === ""){
+        if(inputValue.trim() === ""){
             alert("The field cannot be empty");
         } else {
             navigate('/searchresult',{state:{name:{inputValue}}});

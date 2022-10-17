@@ -1,16 +1,20 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
-import {useLocation} from 'react-router-dom'
+import {useLocation, useNavigate} from 'react-router-dom'
 import MovieCard from './MovieCard'
 import NoResults from './NoResults'
 import SkeletonCard from './SkeletonCard'
+import SearchIcon from '@mui/icons-material/Search';
+
 const API_KEY = '13a400176797127bc7c83a5655852e2a'
 
 const SearchResults = () => {
+  let navigate = useNavigate();
   const location = useLocation()
   const movieTitle = (location.state.name.inputValue)
   const [movies, setMovies] = useState([])
   const [loading, setLoading] = useState(true)
+  const [inputValue, setInputValue] = useState("");
 
   useEffect(() => {
     async function getMovies(){
@@ -30,6 +34,18 @@ const SearchResults = () => {
     getMovies()
   }, [])
 
+  function onSearch(){
+    if(inputValue.trim() === ""){
+        alert("The field cannot be empty");
+    } else {
+        navigate('/searchresult',{state:{name:{inputValue}}});
+    }
+  }
+
+  function refresh(){
+    window.location.reload(false)
+  }
+
   function filterMovies(filter){
     if(filter === "RATING"){
         setMovies(movies.slice()
@@ -46,6 +62,22 @@ const SearchResults = () => {
     <section id='search__result'>
       <div className="container">
         <div className="row">
+        <div className="results__wrapper">
+            <SearchIcon onClick={onSearch}/> 
+            <input 
+                type="text" 
+                className="results__input" 
+                value={inputValue}
+                placeholder="Search Movies"
+                onChange={(event) => setInputValue(event.target.value)}
+                    onKeyPress={(event) => {
+                        if(event.key === "Enter"){
+                          refresh(); onSearch(); 
+                        }
+                    }
+                }
+            />
+        </div>
           <div className="search__result--wrapper">
             {
               movies.length > 0 && (
